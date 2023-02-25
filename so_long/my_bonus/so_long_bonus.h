@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:22:11 by akaabi            #+#    #+#             */
-/*   Updated: 2023/02/25 13:22:07 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:38:14 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+#define SO_LONG_BONUS_H
 
 #define SIZE 64
 
@@ -41,6 +41,7 @@ typedef struct needed {
 	int	x;
 	int	y;
 	int player;
+	int playerp;
 	int Exit;
 	int Coin;
 	char **map;

@@ -6,11 +6,11 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:17:56 by akaabi            #+#    #+#             */
-/*   Updated: 2023/02/25 13:15:04 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:38:28 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	checking(t_needed *s)
 {

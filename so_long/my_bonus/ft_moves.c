@@ -6,11 +6,11 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:26:49 by akaabi            #+#    #+#             */
-/*   Updated: 2023/02/25 13:23:28 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/02/25 13:38:22 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int move(int key,t_needed *s)
 {
@@ -32,12 +32,14 @@ int move_r(t_needed *s)
 		return (0);
 	if (s->map[s->py][s->px + 1] == '0')
 	{
+		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
 		s->map[s->py][s->px] = 'P';
 	}
 	else if (s->map[s->py][s->px + 1] == 'C')
 	{
+		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
 		s->map[s->py][s->px] = 'P';
@@ -45,6 +47,7 @@ int move_r(t_needed *s)
 	}
 	else if (s->map[s->py][s->px + 1] == 'E' && s->Coin == 0)
 	{
+		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
 		s->map[s->py][s->px] = 'P';
@@ -59,12 +62,14 @@ int move_l(t_needed *s)
 		return (0);
 	if (s->map[s->py][s->px - 1] == '0')
 	{
+		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
 		s->map[s->py][s->px] = 'P';
 	}
 	else if (s->map[s->py][s->px - 1] == 'C')
 	{
+		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
 		s->map[s->py][s->px] = 'P';
@@ -72,6 +77,7 @@ int move_l(t_needed *s)
 	}
 	else if (s->map[s->py][s->px - 1] == 'E' && s->Coin == 0)
 	{
+		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
 		s->map[s->py][s->px] = 'P';
