@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_player.c                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 19:12:26 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/03 10:57:38 by akaabi           ###   ########.fr       */
+/*   Created: 2022/11/15 12:01:15 by akaabi            #+#    #+#             */
+/*   Updated: 2022/11/15 15:45:05 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-void	find_player(t_needed *s)
+void	ft_putchar(char c, int *count)
 {
-	s->px = 0;
-	s->py = 0;
-	while (s->map[s->py])
-	{
-		s->px = 0;
-		while (s->map[s->py][s->px])
-		{
-			if (s->map[s->py][s->px] == 'P')
-				return ;
-			s->px++;
-		}
-		s->py++;
-	}
-}
-
-int	key_hook(int key, t_needed *s)
-{
-	find_player(s);
-	if (key == 53)
-		ft_close(s);
-	else
-		move(key, s);
-	checking(s);
-	return (0);
+	write(1, &c, 1);
+	*count = *count + 1;
 }

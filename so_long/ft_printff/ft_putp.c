@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_player.c                                      :+:      :+:    :+:   */
+/*   ft_putp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 19:12:26 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/03 10:57:38 by akaabi           ###   ########.fr       */
+/*   Created: 2022/11/15 12:45:05 by akaabi            #+#    #+#             */
+/*   Updated: 2022/11/15 16:26:29 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-void	find_player(t_needed *s)
+void	ft_putp(unsigned long long n, int *count)
 {
-	s->px = 0;
-	s->py = 0;
-	while (s->map[s->py])
-	{
-		s->px = 0;
-		while (s->map[s->py][s->px])
-		{
-			if (s->map[s->py][s->px] == 'P')
-				return ;
-			s->px++;
-		}
-		s->py++;
-	}
-}
-
-int	key_hook(int key, t_needed *s)
-{
-	find_player(s);
-	if (key == 53)
-		ft_close(s);
+	if (n <= 9)
+		ft_putchar(n + '0', count);
+	else if (n > 9 && n < 16)
+		ft_putchar("abcdef"[n % 10], count);
 	else
-		move(key, s);
-	checking(s);
-	return (0);
+	{
+		ft_putp(n / 16, count);
+		ft_putp(n % 16, count);
+	}
 }

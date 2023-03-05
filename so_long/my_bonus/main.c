@@ -6,25 +6,24 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:26:48 by akaabi            #+#    #+#             */
-/*   Updated: 2023/02/25 13:38:20 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/03 10:40:06 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int rowacol(char *p,t_needed *s)
+int	rowacol(char *p, t_needed *s)
 {
-	char *tmp;
-	int fd;
-	int i;
-	
+	char	*tmp;
+	int		fd;
+	int		i;
+
 	fd = open(p, O_RDONLY, 0777);
 	if (fd == -1)
 		return (0);
 	i = 0;
 	tmp = get_next_line(fd);
 	s->col = ft_strlen(tmp) - 1;
-	// printf("-----------%d\n",s->col);
 	while (tmp)
 	{
 		free(tmp);
@@ -57,7 +56,7 @@ int	ber_check(char *ber)
 	return (1);
 }
 
-int map_testing(char **s, t_needed *a)
+int	map_testing(char **s, t_needed *a)
 {
 	if (ber_check(s[1]) != 1)
 		return (0);
@@ -71,19 +70,11 @@ int map_testing(char **s, t_needed *a)
 
 int	main(int ac, char **av)
 {
+	t_needed	s;
+
 	(void)ac;
 	(void)av;
-	// int i;
-	t_needed s;
-	
-	if (!map_testing(av,&s))
+	if (!map_testing(av, &s))
 		return (0);
-		// i = map_testing(av, &s);
-		// // printf("-------------%d\n",i);
-	// s.mlx = mlx_init();
-    // s.window = mlx_new_window(s.mlx,1920,1080,"so_long");
-    // s.C = mlx_xpm_file_to_image(s.mlx,"my_images/coin.xpm",&s.weight,&s.hight);
-    // mlx_put_image_to_window(s.mlx,s.window,s.C,0,0);
-    // mlx_loop(s.mlx);
 	window_display(&s);
 }

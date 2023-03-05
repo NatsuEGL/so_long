@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:17:56 by akaabi            #+#    #+#             */
-/*   Updated: 2023/02/25 13:38:28 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:19:08 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	checking(t_needed *s)
 {
 	s->y = 0;
-	s->x = 0;
 	while (s->map[s->y])
 	{
 		s->x = 0;
@@ -28,9 +27,11 @@ int	checking(t_needed *s)
 			if (s->map[s->y][s->x] == 'P')
 				player_one(s);
 			if (s->map[s->y][s->x] == 'C')
-				Coin_collection(s);
+				coin_collection(s);
 			if (s->map[s->y][s->x] == 'E')
-				door_Exit(s);
+				door_exit(s);
+			if (s->map[s->y][s->x] == 'M')
+				monster(s);
 			s->x++;
 		}
 		s->y++;
@@ -38,19 +39,21 @@ int	checking(t_needed *s)
 	return (0);
 }
 
-int window_display(t_needed *s)
+int	window_display(t_needed *s)
 {
 	s->mlx = mlx_init();
-    s->window = mlx_new_window(s->mlx,s->col * SIZE,s->row * SIZE,"so_long");
+	s->window = mlx_new_window(s->mlx, s->col * SIZE + SIZE, \
+		s->row * SIZE, "so_long");
 	checking(s);
-	mlx_hook(s->window, 2, 0, key_hook, s); 
-	mlx_hook(s->window, 17, 0, ft_close, s); 
-    mlx_loop(s->mlx);
+	mlx_hook(s->window, 2, 0, key_hook, s);
+	mlx_hook(s->window, 17, 0, ft_close, s);
+	mlx_string_put(s->mlx, s->window, s->col * SIZE + 25, 32, 0xFF69B4, "0");
+	mlx_loop(s->mlx);
 	return (0);
 }
 
-int ft_close(t_needed *s)
+int	ft_close(t_needed *s)
 {
-	mlx_destroy_window(s->mlx,s->window);
+	mlx_destroy_window(s->mlx, s->window);
 	exit(1);
 }
