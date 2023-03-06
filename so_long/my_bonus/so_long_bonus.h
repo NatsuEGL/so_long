@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:22:11 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 14:09:15 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:07:55 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ typedef struct needed {
 	void	*w;
 	void	*b;
 	void	*m;
-	void	*m2;
-	void	*m3;
-	void	*m4;
-	void	*m5;
-	void	*m6;
-	void	*m7;
-	void	*m8;
 	int		hight;
 	int		weight;
 	void	*window;
@@ -60,6 +53,7 @@ typedef struct needed {
 	int		coin;
 	int		monster;
 	char	**map;
+	char	**mt;
 }	t_needed;
 
 int		first_row(t_needed *s, char *a);
@@ -70,11 +64,13 @@ int		make_mapf(char *tmp, t_needed *s);
 int		charcters_needed(t_needed *s);
 int		my_characters(t_needed *s);
 int		player_one(t_needed *s);
+int		playerl_one(t_needed *s);
 void	find_monster(t_needed *s);
 int		back_ground(t_needed *s);
 int		coin_collection(t_needed *s);
 int		wall_backgroud(t_needed *s);
 int		door_exit(t_needed *s);
+int		door_exit2(t_needed *s);
 int		monster(t_needed *s);
 int		window_display(t_needed *s);
 int		move(int key, t_needed *s);
@@ -94,4 +90,10 @@ int		move_dc(t_needed *s);
 int		move_lc(t_needed *s);
 int		move_uc(t_needed *s);
 int		move_rc(t_needed *s);
+int		copy_map(char *a, t_needed *s);
+int		fill_p(t_needed *s, int x, int y, int *z);
+int		filling_copy(t_needed *s);
+int		exit_check(t_needed *s);
+int		collection_check(t_needed *s);
+int		map_tracking(char *a, t_needed *s);
 #endif 

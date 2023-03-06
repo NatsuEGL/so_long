@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:05:22 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 14:10:52 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 13:04:10 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_itoa(int n)
 	size_n = ft_count(n);
 	nb = n;
 	s = ft_calloc(sizeof(char), size_n + 1);
-	while (!s)
+	if (!s)
 		return (0);
 	if (nb < 0)
 	{

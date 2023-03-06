@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_tracking.c                                     :+:      :+:    :+:   */
+/*   map_tracking_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:04:33 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 13:38:16 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 13:52:24 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	copy_map(char *a, t_needed *s)
 {
@@ -30,6 +30,31 @@ int	copy_map(char *a, t_needed *s)
 		s->mt[i] = get_next_line(fd);
 		i++;
 	}
+	close(fd);
+	return (0);
+}
+
+int	filling_copy(t_needed *s)
+{
+	int	a;
+	int	b;
+	int	z;
+
+	a = 0;
+	z = 0;
+	while (s->mt[a])
+	{
+		b = 0;
+		while (s->mt[a][b])
+		{
+			if (s->mt[a][b] == 'P')
+				fill_p(s, b, a, &z);
+			b++;
+		}
+		a++;
+	}
+	if (z)
+		filling_copy(s);
 	return (0);
 }
 
@@ -55,30 +80,6 @@ int	fill_p(t_needed *s, int x, int y, int *z)
 		*z = 1;
 		s->mt[y + 1][x] = 'P';
 	}
-	return (0);
-}
-
-int	filling_copy(t_needed *s)
-{
-	int	a;
-	int	b;
-	int	z;
-
-	a = 0;
-	z = 0;
-	while (s->mt[a])
-	{
-		b = 0;
-		while (s->mt[a][b])
-		{
-			if (s->mt[a][b] == 'P')
-				fill_p(s, b, a, &z);
-			b++;
-		}
-		a++;
-	}
-	if (z)
-		filling_copy(s);
 	return (0);
 }
 

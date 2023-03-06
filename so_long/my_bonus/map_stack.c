@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:15:14 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/03 10:40:41 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 13:53:09 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ int	make_mapf(char *tmp, t_needed *s)
 	s->map = malloc((s->row + 1) * sizeof(char *));
 	s->map[s->row] = 0;
 	s->map[0] = get_next_line(fd);
-	first_row(s, s->map[0]);
+	if (!first_row (s, s->map[0]))
+		return (0);
 	while (i < s->row - 1)
 	{
 		s->map[i] = get_next_line(fd);
-		middle_row(s, s->map[i]);
+		if (!middle_row (s, s->map[i]))
+			return (0);
 		i++;
 	}
 	s->map[i] = get_next_line(fd);
-	last_row(s, s->map[i]);
+	if (!last_row (s, s->map[i]))
+		return (0);
 	close(fd);
 	return (1);
 }

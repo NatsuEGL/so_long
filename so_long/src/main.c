@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:26:48 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 18:41:34 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 13:34:29 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	map_tracking(char *a, t_needed *s)
 {
 	copy_map(a, s);
 	filling_copy(s);
-	if (collection_check(s->mt) == 0)
+	if (collection_check(s) == 0)
 		return (0);
 	return (1);
 }
@@ -83,11 +83,11 @@ int	main(int ac, char **av)
 {
 	t_needed	s;
 
-	(void)ac;
-	(void)av;
+	if (ac != 2)
+		return (0);
 	if (!map_testing(av, &s))
 	{
-		ft_printf("map invalide!!, Try to fix it\n");
+		ft_printf("Map invalide!!, Try to fix it\n");
 		exit(1);
 	}
 	window_display(&s);

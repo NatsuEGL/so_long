@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:00:09 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 14:17:12 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:00:36 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	move_dc(t_needed *s)
 		s->map[s->py][s->px] = '0';
 		s->py += 1;
 		s->map[s->py][s->px] = 'P';
+		ft_printf("******YOU WIN********\n");
 		exit(1);
 	}
 	return (0);
@@ -53,6 +54,7 @@ int	move_uc(t_needed *s)
 		s->map[s->py][s->px] = '0';
 		s->py -= 1;
 		s->map[s->py][s->px] = 'P';
+		ft_printf("******YOU WIN********\n");
 		exit(1);
 	}
 	return (0);
@@ -78,6 +80,7 @@ int	move_lc(t_needed *s)
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
 		s->map[s->py][s->px] = 'P';
+		ft_printf("******YOU WIN********\n");
 		exit(1);
 	}
 	return (0);
@@ -103,6 +106,7 @@ int	move_rc(t_needed *s)
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
 		s->map[s->py][s->px] = 'P';
+		ft_printf("******YOU WIN********\n");
 		exit(1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:26:48 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/03 10:40:06 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:22:14 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,23 @@ int	ber_check(char *ber)
 
 int	map_testing(char **s, t_needed *a)
 {
-	if (ber_check(s[1]) != 1)
+	if (!ber_check(s[1]))
 		return (0);
 	rowacol(s[1], a);
-	if (make_mapf(s[1], a) != 1)
+	if (!make_mapf(s[1], a))
 		return (0);
-	if (charcters_needed(a) != 1)
+	if (!charcters_needed(a))
+		return (0);
+	if (!map_tracking(s[1], a))
+		return (0);
+	return (1);
+}
+
+int	map_tracking(char *a, t_needed *s)
+{
+	copy_map(a, s);
+	filling_copy(s);
+	if (!collection_check(s))
 		return (0);
 	return (1);
 }
@@ -72,9 +83,14 @@ int	main(int ac, char **av)
 {
 	t_needed	s;
 
-	(void)ac;
-	(void)av;
-	if (!map_testing(av, &s))
+	if (ac != 2)
 		return (0);
+	if (!map_testing(av, &s))
+	{
+		ft_printf("Map invalid!!, Try to fix it\n");
+		exit(1);
+	}
+	system("leaks so_long");
 	window_display(&s);
+	return (0);
 }
