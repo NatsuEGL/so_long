@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:22:11 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 14:07:55 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:23:31 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ typedef struct needed {
 	int		row;
 	int		x;
 	int		y;
-	int		xn;
-	int		yn;
-	int		i;
-	int		j;
 	int		player;
 	int		playerp;
 	int		exit;
@@ -95,5 +91,6 @@ int		fill_p(t_needed *s, int x, int y, int *z);
 int		filling_copy(t_needed *s);
 int		exit_check(t_needed *s);
 int		collection_check(t_needed *s);
+int		last_r(t_needed *s);
 int		map_tracking(char *a, t_needed *s);
 #endif 

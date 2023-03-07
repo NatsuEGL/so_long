@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:26:49 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 13:51:28 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:05:35 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ int	move_r(t_needed *s)
 		return (0);
 	if (s->map[s->py][s->px + 1] == 'M')
 	{
-		ft_printf("*******<0>You Died<0>********\n");
+		ft_printf("*******<0>You Die<0>********\n");
 		exit(1);
 	}
 	if (s->map[s->py][s->px + 1] == '0')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
@@ -55,13 +54,12 @@ int	move_l(t_needed *s)
 		return (0);
 	if (s->map[s->py][s->px - 1] == 'M')
 	{
-		ft_printf("*******<0>You Died<0>********\n");
+		ft_printf("*******<0>You Die<0>********\n");
 		exit(1);
 	}
 	if (s->map[s->py][s->px - 1] == '0')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
@@ -78,13 +76,12 @@ int	move_u(t_needed *s)
 		return (0);
 	if (s->map[s->py - 1][s->px] == 'M')
 	{
-		ft_printf("*******<0>You Died<0>********\n");
+		ft_printf("*******<0>You Die<0>********\n");
 		exit(1);
 	}
 	if (s->map[s->py - 1][s->px] == '0')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py -= 1;
 		s->map[s->py][s->px] = 'P';
@@ -100,13 +97,12 @@ int	move_d(t_needed *s)
 		return (0);
 	if (s->map[s->py + 1][s->px] == 'M')
 	{
-		ft_printf("*******<0>You Died<0>********\n");
+		ft_printf("*******<0>You Die<0>********\n");
 		exit(1);
 	}
 	if (s->map[s->py + 1][s->px] == '0')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py += 1;
 		s->map[s->py][s->px] = 'P';

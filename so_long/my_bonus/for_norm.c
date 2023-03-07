@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:00:09 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 14:00:36 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:59:12 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	move_dc(t_needed *s)
 	if (s->map[s->py + 1][s->px] == 'C')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py += 1;
 		s->map[s->py][s->px] = 'P';
@@ -26,7 +25,6 @@ int	move_dc(t_needed *s)
 	else if (s->map[s->py + 1][s->px] == 'E' && s->coin == 0)
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py += 1;
 		s->map[s->py][s->px] = 'P';
@@ -41,7 +39,6 @@ int	move_uc(t_needed *s)
 	if (s->map[s->py - 1][s->px] == 'C')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py -= 1;
 		s->map[s->py][s->px] = 'P';
@@ -50,7 +47,6 @@ int	move_uc(t_needed *s)
 	else if (s->map[s->py - 1][s->px] == 'E' && s->coin == 0)
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->map[s->py][s->px] = '0';
 		s->py -= 1;
 		s->map[s->py][s->px] = 'P';
@@ -65,7 +61,6 @@ int	move_lc(t_needed *s)
 	if (s->map[s->py][s->px - 1] == 'C')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
@@ -75,7 +70,6 @@ int	move_lc(t_needed *s)
 	else if (s->map[s->py][s->px - 1] == 'E' && s->coin == 0)
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 2;
 		s->map[s->py][s->px] = '0';
 		s->px -= 1;
@@ -91,7 +85,6 @@ int	move_rc(t_needed *s)
 	if (s->map[s->py][s->px + 1] == 'C')
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;
@@ -101,7 +94,6 @@ int	move_rc(t_needed *s)
 	else if (s->map[s->py][s->px + 1] == 'E' && s->coin == 0)
 	{
 		s->moves++;
-		ft_printf("%d\n", s->moves);
 		s->playerp = 1;
 		s->map[s->py][s->px] = '0';
 		s->px += 1;

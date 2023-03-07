@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:26:48 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 15:22:14 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:49:45 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	rowacol(char *p, t_needed *s)
 		return (0);
 	i = 0;
 	tmp = get_next_line(fd);
+	if (!tmp)
+	{
+		ft_printf("Error\nSomething Goes Wrong, Try To Fix It\n");
+		exit(1);
+	}
 	s->col = ft_strlen(tmp) - 1;
 	while (tmp)
 	{
@@ -90,7 +95,6 @@ int	main(int ac, char **av)
 		ft_printf("Map invalid!!, Try to fix it\n");
 		exit(1);
 	}
-	system("leaks so_long");
 	window_display(&s);
 	return (0);
 }

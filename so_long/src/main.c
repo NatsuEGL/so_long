@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:26:48 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 13:34:29 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:05:56 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	rowacol(char *p, t_needed *s)
 		return (0);
 	i = 0;
 	tmp = get_next_line(fd);
+	if (!tmp)
+	{
+		ft_printf("Error\nSomething Goes Wrong, Try To Fix It\n");
+		exit(1);
+	}
 	s->col = ft_strlen(tmp) - 1;
 	while (tmp)
 	{
@@ -44,7 +49,9 @@ int	ber_check(char *ber)
 	p = ".ber";
 	a = ft_strlen(ber) - 1;
 	b = ft_strlen(p) - 1;
-	while (b >= 0)
+	if (a == b)
+		return (0);
+	while (a >= 0 && b >= 0)
 	{
 		if (ber[a] != p[b])
 		{
@@ -87,7 +94,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (!map_testing(av, &s))
 	{
-		ft_printf("Map invalide!!, Try to fix it\n");
+		ft_printf("Error\nMap invalid!!, Try to fix it\n");
 		exit(1);
 	}
 	window_display(&s);

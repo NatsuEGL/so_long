@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:17:56 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 14:19:08 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:19:37 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	window_display(t_needed *s)
 	s->window = mlx_new_window(s->mlx, s->col * SIZE + SIZE, \
 		s->row * SIZE, "so_long");
 	checking(s);
+	s->moves = 0;
 	mlx_hook(s->window, 2, 0, key_hook, s);
 	mlx_hook(s->window, 17, 0, ft_close, s);
 	mlx_string_put(s->mlx, s->window, s->col * SIZE + 25, 32, 0xFF69B4, "0");

@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:22:11 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 13:41:52 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:28:05 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ int	exit_check(t_needed *s);
 int	collection_check(t_needed *s);
 int	map_tracking(char *a, t_needed *s);
 int	for_fr(t_needed *s);
+int	last_r(t_needed *s);
 #endif 

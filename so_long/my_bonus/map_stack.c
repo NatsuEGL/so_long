@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:15:14 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/06 13:53:09 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:26:31 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,24 @@ int	make_mapf(char *tmp, t_needed *s)
 		i++;
 	}
 	s->map[i] = get_next_line(fd);
-	if (!last_row (s, s->map[i]))
+	if (!last_r(s))
 		return (0);
 	close(fd);
+	return (1);
+}
+
+int	last_r(t_needed *s)
+{
+	int	i;
+
+	i = 0;
+	while (i > s->row - 1)
+	{
+		if (!s->map[i])
+			return (0);
+		if (!last_row (s, s->map[i]))
+			return (0);
+		i++;
+	}
 	return (1);
 }

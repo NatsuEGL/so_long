@@ -6,7 +6,7 @@
 /*   By: akaabi <akaabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 14:42:55 by akaabi            #+#    #+#             */
-/*   Updated: 2023/03/05 14:26:04 by akaabi           ###   ########.fr       */
+/*   Updated: 2023/03/06 21:40:48 by akaabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	charcters_needed(t_needed *s)
 		}
 		a++;
 	}
-	my_characters(s);
+	if (!my_characters(s))
+		return (0);
 	return (1);
 }
 
